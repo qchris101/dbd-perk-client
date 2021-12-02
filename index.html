@@ -12,6 +12,101 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>DBD PERK CREATOR</h1>
     </body>
-</html>
+    <body>
+      <section id="before-sign-in">
+        <form id="sign-up" class="border">
+          <fieldset>
+            <legend>Sign Up</legend>
+            <input type="email" name="credentials[email]" placeholder="Email" required>
+            <input type="password" name="credentials[password]" placeholder="Password" required>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required>
+            
+            <button class="btn btn-dark">Sign Up</button>
+          </fieldset>
+          
+        </form>
+        
+        <form id="sign-in" class="border">
+          <fieldset>
+            <legend>Sign In</legend>
+            <input type="email" name="credentials[email]" placeholder="Email" required>
+            <input type="password" name="credentials[password]" placeholder="Password" required>
+            
+            
+            <button class="btn btn-dark">Sign In</button>
+          </fieldset>
+          
+        </form>
+        
+      </section>
+      
+      <section id="after-sign-in">
+        <form id="change-password" class="border">
+          <fieldset>
+            <legend>Change Password</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password" required>
+            <input type="password" name="passwords[new]" placeholder="New Password" required>
+            
+            
+            <button class="btn btn-dark">Change Password</button>
+          </fieldset>
+        </form>
+        <form id="sign-out" class="border">
+          <fieldset>    
+            <button class="btn btn-dark">Sign Out</button>
+          </fieldset>
+        </form>
+      </section>
+      
+      <section>
+        <div id="error-message"></div>
+        <div id="perk-display"></div>
+      </section>
+
+      <h1>Perks </h1>
+      <main>
+        <section>
+          <h2> Get All Perks </h2>
+          <button id="perks-index">Get All Perks</button>
+          <!-- <h2> Get All Perks </h2>
+          <button id="books-index-Owned">Get All Owned Perks</button>
+          <hr> -->
+          <h2> Get One Perk</h2>
+          <form id="perks-show">
+            <input type="text" name = "perk[id]" placeholder="Perk ID">
+            <button>Get Perk</button>
+          </form>
+          <h2>Destroy One Perk</h2>
+          <form id="perks-delete">
+            <input type="text" name = "perk[id]" placeholder="Perk ID" required>
+            <button>Destroy Perk</button>
+          </form>
+          <h2> Update One perk</h2>
+          <form id="perks-update">
+            <input type="text" name = "perk[id]" placeholder="Perk ID">
+            <input type="text" name = "perk[title]" placeholder="Perk Title">
+            <input type="text" name = "perk[text]" placeholder="Perk Description">
+            <button>Update Perk</button>
+          </form>
+          <h2>Create A New Perk
+          </h2>
+          <form id="perks-new">
+            <input type="text" name = "perk[title]" placeholder="Perk Title">
+            <input type="text" name = "perk[text]" placeholder="Perk Description">
+            <button>Create Perk</button>
+          </form>
+        </section>
+
+        <section>
+          <!-- <div id="error-message"></div> -->
+          <div id="perks-display"></div>
+
+        </section>
+      </main>
+
+
+    </body>
+    </html>
+    
