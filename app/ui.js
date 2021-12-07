@@ -6,6 +6,7 @@ $('#after-sign-in').hide()
 $('#perk-display').hide()
 $('#perk-UiHandler').hide()
 const signUpSuccess = function (responseData) {
+  $('#handler-display').show()
   $('#handler-display').text('Signed up successfully!')
   $('#handler-display').addClass('text-success')
   setTimeout(() => {
