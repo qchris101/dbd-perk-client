@@ -18,6 +18,4 @@ $(() => {
   $('#perks-delete').on('submit', authEvents.onDestroyPerk)
   $('#perks-update').on('submit', authEvents.onUpdatePerk)
   $('#perks-new').on('submit', authEvents.onCreatePerk)
-  $('#perks-display').on('click', '.perks-destroy-dynamic', authEvents.onDynamicDestroyPerk)
-  $('#perks-display').on('submit', '.perks-Update-dynamic', authEvents.onDynamicUpdatePerk)
 })
