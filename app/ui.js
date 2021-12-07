@@ -1,8 +1,10 @@
 'use strict'
 const store = require('./store')
 $('#perks-after-sign-in').hide()
+$('#error-message').hide()
 $('#after-sign-in').hide()
 $('#perk-display').hide()
+$('#perk-UiHandler').hide()
 const signUpSuccess = function (responseData) {
   $('#handler-display').text('Signed up successfully!')
   $('#handler-display').addClass('text-success')
@@ -91,6 +93,7 @@ const signOutSuccess = (responseData) => {
   }, 2000)
   $('#after-sign-in').fadeOut()
   $('#perks-after-sign-in').fadeOut()
+  $('#perk-display').fadeOut()
   $('#login-Ui').fadeIn()
 }
 
@@ -143,7 +146,6 @@ const onShowPerkSuccess = function (responseData) {
   <p> Perk Description: ${perk.text}</p>
   <p> ID: ${perk._id}</p>
   <p> Perk Owner: ${perk.owner}</p>
-  <P>___________________________________</P>
   </div>
   
   `

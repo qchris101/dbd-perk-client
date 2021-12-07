@@ -20,13 +20,27 @@
     border: 3px #828282;
 }
 
-h1, h2, h3 {
+h1, h2, h3,h4,p {
     color:orange
 }
 
-.sign-text {
+.signUp-text {
     margin-left: 15px;
 }
+.sign-text {
+    margin-left: 15px;
+    
+}
+
+#sign-in {
+    padding-left: 25px;
+    padding-bottom: 40px;
+}
+
+#perks-index {
+    margin:15px;
+}
+
 
 .ordered-sign, h1{
     margin: 10px;
@@ -38,24 +52,50 @@ h1, h2, h3 {
 
 #signUp-btn,#signIn-btn,#changePass-btn,#create-btn,#del-btn,#get-btn,#perks-index{
     margin-left: 10px;
+    border-radius: 7px;
+}
+#create-btn{
+    margin-top: 10px;
+    margin-right: 10px;
 }
 #password-box{
     display: flex;
     justify-content: right;
 
 }
+
+input[type=text] {
+  border: 1px solid #555;
+  outline: none;
+}
+
+input[type=text]:focus {
+  background-color: lightgray;
+}
+.textarea {
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+
 #signOut-btn {
     margin-top: 5px;
     margin-right: 5px;
     position:absolute;
     top:0;
     right:0;
+    background-color: red; 
+    color: white;
+    border-radius: 7px;
 }
 #center-perkUi {
     margin: 10px;
     align-items: center;
     display: flex;
-    justify-content: center;
     justify-content: space-evenly;
 }
 // .perk-style {
@@ -64,6 +104,27 @@ h1, h2, h3 {
 //     box-shadow: 5px 7px 12px 10px rgba(0,0,0,0.33);
     
 // }
+
+#handler-display{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 115px;
+    
+}
+
+#perk-UiHandler,#error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 270px;
+    border-radius: 5px;
+    border: 7px ridge #555;
+    background-color:black;
+}
+
 #perk-display {
     padding-top: 75px;
     padding-bottom: 400px;
