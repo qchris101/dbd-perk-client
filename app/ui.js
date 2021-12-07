@@ -28,6 +28,7 @@ const signUpFailure = function () {
 
 const signInSuccess = (responseData) => {
   store.user = responseData.user
+  $('#handler-display').show()
   $('#handler-display').text('Signed In successfully')
   $('#handler-display').removeClass()
   $('#handler-display').addClass('text-success')
@@ -35,9 +36,9 @@ const signInSuccess = (responseData) => {
     $('#handler-display').hide()
     $('#handler-display').text('')
     $('#handler-display').removeClass('text-success')
-    $('#after-sign-in').fadeIn()
-    $('#perks-after-sign-in').fadeIn()
-    $('#before-sign-in').fadeOut()
+    $('#after-sign-in').fadeIn(2000)
+    $('#perks-after-sign-in').fadeIn(2000)
+    $('#login-Ui').fadeOut()
   }, 2000)
   $('form').trigger('reset')
 }
@@ -90,7 +91,7 @@ const signOutSuccess = (responseData) => {
   }, 2000)
   $('#after-sign-in').fadeOut()
   $('#perks-after-sign-in').fadeOut()
-  $('#before-sign-in').fadeIn()
+  $('#login-Ui').fadeIn()
 }
 
 const signOutFailure = () => {
@@ -113,8 +114,8 @@ const onIndexPerkSuccess = function (responseData) {
   perks.forEach(perk => {
     perkHtml += `
     <div>
-    <h4> Perk Title: ${perk.title}</h4>
-    <p> Perk Description: ${perk.text}</p>
+    <h4> Perk: ${perk.title}</h4>
+    <p> Description: ${perk.text}</p>
     <p> ID: ${perk._id}</p>
     <p> Perk Owner: ${perk.owner}</p>
     </div>
@@ -138,7 +139,7 @@ const onShowPerkSuccess = function (responseData) {
 
   const perkHtml = `
   <div class = perk-style>
-  <h4> Perk Title: ${perk.title}</h4>
+  <h4> Perk : ${perk.title}</h4>
   <p> Perk Description: ${perk.text}</p>
   <p> ID: ${perk._id}</p>
   <p> Perk Owner: ${perk.owner}</p>
@@ -199,8 +200,14 @@ const onCreatePerkSuccess = function (responseData) {
 }
 
 const onError = function () {
+  $('#error-message').show()
   $('#error-message').text('Something went wrong, please try again.')
   $('#error-message').addClass('text-danger')
+  setTimeout(() => {
+    $('#error-message').hide()
+    $('#error-message').text('')
+    $('#error-message').removeClass('text-success')
+  }, 2000)
 }
 
 module.exports = {

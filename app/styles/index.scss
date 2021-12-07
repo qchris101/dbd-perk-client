@@ -8,11 +8,27 @@
     background-attachment: fixed;
 }
 
-h1, h2 {
-    color:white
+#login-Ui{
+    margin-top: 250px;
+    margin-left: 700px;
+    margin-right: 700px;
+    background-color: rgb(19, 19, 19);
+    display: flex;
+    box-shadow: 10px 10px 25px 10px #000000;
+    border-radius: 25px;
+    justify-content: center;
+    border: 3px #828282;
 }
 
-.ordered-sign, h1, nav {
+h1, h2, h3 {
+    color:orange
+}
+
+.sign-text {
+    margin-left: 15px;
+}
+
+.ordered-sign, h1{
     margin: 10px;
     align-items: center;
     display: flex;
@@ -20,12 +36,20 @@ h1, h2 {
     justify-content: space-evenly;
 }
 
-#signUp-btn,#signIn-btn{
+#signUp-btn,#signIn-btn,#changePass-btn,#create-btn,#del-btn,#get-btn,#perks-index{
     margin-left: 10px;
 }
-#sign-out {
+#password-box{
     display: flex;
     justify-content: right;
+
+}
+#signOut-btn {
+    margin-top: 5px;
+    margin-right: 5px;
+    position:absolute;
+    top:0;
+    right:0;
 }
 #center-perkUi {
     margin: 10px;
@@ -41,10 +65,19 @@ h1, h2 {
     
 // }
 #perk-display {
+    padding-top: 75px;
+    padding-bottom: 400px;
+    padding-left: 75px;
+    padding-right: 75px;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: rgb(19, 19, 19);
     display: flex;
+    box-shadow: 10px 10px 25px 10px #000000;
+    border-radius: 25px;
+    justify-content: space-between;
     justify-content: space-evenly;
-    //border: 8px groove #E77A48;
-    //background-color: black;
+    border: 3px #828282;
     color:azure;
 
 }
