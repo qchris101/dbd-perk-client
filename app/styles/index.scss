@@ -1,1 +1,54 @@
 @import '~bootstrap/scss/bootstrap';
+
+#box { 
+    background-image: url(https://images.squarespace-cdn.com/content/5ed1b3e73b87d766d1c49146/1620516028726-MAATBDYTPL1W962LOY3T/dbd-topheader-3.gif?format=1500w&content-type=image%2Fgif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1, h2 {
+    color:white
+}
+
+.ordered-sign, h1, nav {
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+#signUp-btn,#signIn-btn{
+    margin-left: 10px;
+}
+#sign-out {
+    display: flex;
+    justify-content: right;
+}
+#center-perkUi {
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+// .perk-style {
+//     border-radius: 500px;
+//     -webkit-box-shadow: 5px 7px 12px 10px rgba(0,0,0,0.33); 
+//     box-shadow: 5px 7px 12px 10px rgba(0,0,0,0.33);
+    
+// }
+#perk-display {
+    display: flex;
+    justify-content: space-evenly;
+    //border: 8px groove #E77A48;
+    //background-color: black;
+    color:azure;
+
+}
+// #ordered-sign-up {
+//     display: flex;
+//     justify-content: center;
+// }

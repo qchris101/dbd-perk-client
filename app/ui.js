@@ -1,97 +1,113 @@
 'use strict'
 const store = require('./store')
-
+$('#perks-after-sign-in').hide()
+$('#after-sign-in').hide()
+$('#perk-display').hide()
 const signUpSuccess = function (responseData) {
-  // tell the user it was successful
-  $('#perk-display').text('Signed up successfully!')
-
-  // remove existing classes, then add a green text-success class from bootstrap
-  $('#perks-display').removeClass()
-  $('#perk-display').addClass('text-success')
-
-  // clear (reset) all of the forms
+  $('#handler-display').text('Signed up successfully!')
+  $('#handler-display').addClass('text-success')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-success')
+  }, 2000)
   $('form').trigger('reset')
-
-  console.log('responseData is', responseData)
 }
 
-const signUpFailure = function (error) {
-  // tell the user it was failure
-  $('#error-message').text('Sign up failed')
-
-  // remove existing classes, then add a red text-danger class from bootstrap
-  $('#error-message').removeClass()
-  $('#error-message').addClass('text-danger')
-
-  // print the error
-  console.error('error is', error)
+const signUpFailure = function () {
+  $('#handler-display').show()
+  $('#handler-display').text('Sign up failed, Try Again')
+  $('#handler-display').addClass('text-danger')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-danger')
+  }, 2000)
+  $('form').trigger('reset')
 }
 
 const signInSuccess = (responseData) => {
   store.user = responseData.user
-  $('#perk-display').text('Signed In successfully')
-  $('#perk-display').removeClass()
-  $('#perk-display').addClass('text-success')
+  $('#handler-display').text('Signed In successfully')
+  $('#handler-display').removeClass()
+  $('#handler-display').addClass('text-success')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-success')
+    $('#after-sign-in').fadeIn()
+    $('#perks-after-sign-in').fadeIn()
+    $('#before-sign-in').fadeOut()
+  }, 2000)
   $('form').trigger('reset')
-  // $('#after-sign-in').show()
-  // $('#before-sign-in').hide()
 }
 
-const signInFailure = (error) => {
-  $('#error-message').text('Sign In failed')
-
-  $('#error-message').removeClass()
-
-  $('#error-message').addClass('text-danger')
-  console.error('error is' + error)
+const signInFailure = () => {
+  $('#handler-display').show()
+  $('#handler-display').text('Sign In failed, Incorrect Email or Password')
+  $('#handler-display').addClass('text-danger')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-danger')
+  }, 2000)
+  $('form').trigger('reset')
 }
 
 const changePasswordSuccess = (responseData) => {
-// tell the user it was successful
-  $('#perk-display').text('Changed password successfully!')
-
-  // remove existing classes, then add a green text-success class from bootstrap
-  $('#perk-display').removeClass()
-  $('#perk-display').addClass('text-success')
-
-  // clear (reset) all of the forms
+  $('#handler-display').show()
+  $('#handler-display').text('Changed password successfully!')
+  $('#handler-display').addClass('text-success')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-success')
+  }, 2000)
   $('form').trigger('reset')
-
-  console.log('responseData is', responseData)
 }
 
-const changePasswordFailure = (error) => {
-  $('#error-message').text('Sign out failed')
-
-  $('#error-message').removeClass()
-
-  $('#error-message').addClass('text-danger')
-  console.error('error is' + error)
+const changePasswordFailure = () => {
+  $('#handler-display').show()
+  $('#handler-display').text('Password Change Failed!')
+  $('#handler-display').addClass('text-danger')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-danger')
+  }, 2000)
+  $('form').trigger('reset')
 }
 const signOutSuccess = (responseData) => {
-  store.user = responseData.user
-  $('#perk-display').text('Signed Out successfully')
-  $('#perk-display').removeClass()
-  $('#perk-display').addClass('text-success')
-  $('form').trigger('reset')
-  // $('#after-sign-in').hide()
-  // $('#before-sign-in').show()
+  // store.user = responseData.user
+  $('#handler-display').show()
+  $('#handler-display').text('Signed Out successfully')
+  $('#handler-display').removeClass()
+  $('#handler-display').addClass('text-success')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-success')
+  }, 2000)
+  $('#after-sign-in').fadeOut()
+  $('#perks-after-sign-in').fadeOut()
+  $('#before-sign-in').fadeIn()
 }
 
-const signOutFailure = (error) => {
-  $('#error-message').text('Sign In failed')
-
-  $('#error-message').removeClass()
-
-  $('#error-message').addClass('text-danger')
-  console.error('error is' + error)
+const signOutFailure = () => {
+  $('#handler-display').show()
+  $('#handler-display').text('Sign-Out Failed!')
+  $('#handler-display').addClass('text-danger')
+  setTimeout(() => {
+    $('#handler-display').hide()
+    $('#handler-display').text('')
+    $('#handler-display').removeClass('text-danger')
+  }, 2000)
 }
 
 const { onCreatePerk } = require('./events')
 
 const onIndexPerkSuccess = function (responseData) {
   const perks = responseData.perks
-  console.log(responseData)
   let perkHtml = ''
 
   perks.forEach(perk => {
@@ -101,66 +117,90 @@ const onIndexPerkSuccess = function (responseData) {
     <p> Perk Description: ${perk.text}</p>
     <p> ID: ${perk._id}</p>
     <p> Perk Owner: ${perk.owner}</p>
-    <P>___________________________________</P>
     </div>
     `
   })
+  $('#perk-display').fadeIn()
   $('#perk-display').html(perkHtml)
+  $('#perk-UiHandler').show()
+  $('#perk-UiHandler').text('Showing All Available Perks')
+  $('#perk-UiHandler').removeClass()
+  $('#perk-UiHandler').addClass('text-success')
+  setTimeout(() => {
+    $('#perk-UiHandler').hide()
+    $('#perk-UiHandler').text('')
+    $('#perk-UiHandler').removeClass('text-success')
+  }, 2000)
 }
-// const onIndexPerkOwnerSuccess = function (responseData) {
-//   const perks = responseData.perks
-//   console.log(responseData)
-//   let perkHtml = ''
-
-//   perks.forEach(perk => {
-//     perkHtml += `
-//     <div>
-//     <h4> Title: ${perk.title}</h4>
-//     <p> Author: ${perk.text}</p>
-//     <p> ID: ${perk._id}</p>
-//     <P>___________________________________</P>
-//     </div>
-//     `
-//   })
-//   $('#books-display').html(perkHtml)
-// }
 
 const onShowPerkSuccess = function (responseData) {
   const perk = responseData.perk
-  console.log(responseData)
 
   const perkHtml = `
-  <div>
+  <div class = perk-style>
   <h4> Perk Title: ${perk.title}</h4>
   <p> Perk Description: ${perk.text}</p>
   <p> ID: ${perk._id}</p>
+  <p> Perk Owner: ${perk.owner}</p>
   <P>___________________________________</P>
   </div>
   
   `
   $('#perk-display').html(perkHtml)
+  $('#perk-UiHandler').show()
+  $('#perk-UiHandler').text('Showing Selected Perk')
+  $('#perk-UiHandler').removeClass()
+  $('#perk-UiHandler').addClass('text-success')
+  setTimeout(() => {
+    $('#perk-UiHandler').hide()
+    $('#perk-UiHandler').text('')
+    $('#perk-UiHandler').removeClass('text-success')
+  }, 2000)
   $('form').trigger('reset')
 }
+
 const onDestroyPerkSuccess = function (responseData) {
-  $('#perk-display').text('The perk was Deleted Successfully')
-  $('#perk-display').addClass('text-success')
+  $('#perk-UiHandler').show()
+  $('#perk-UiHandler').text('The perk was Deleted Successfully')
+  $('#perk-UiHandler').removeClass()
+  $('#perk-UiHandler').addClass('text-success')
+  setTimeout(() => {
+    $('#perk-UiHandler').hide()
+    $('#perk-UiHandler').text('')
+    $('#perk-UiHandler').removeClass('text-success')
+  }, 2000)
+  $('form').trigger('reset')
 }
 
 const onUpdatePerkSuccess = function (responseData) {
-  $('#perk-display').text('The perk was updated Successfully')
-  $('#perk-display').addClass('text-success')
-}
-
-const onCreatePerkSuccess = function (responseData) {
-  $('#perk-display').text('The perk was created Successfully')
-  $('#perk-display').addClass('text-success')
+  $('#perk-UiHandler').show()
+  $('#perk-UiHandler').text('The perk was updated Successfully')
+  $('#perk-UiHandler').removeClass()
+  $('#perk-UiHandler').addClass('text-success')
+  setTimeout(() => {
+    $('#perk-UiHandler').hide()
+    $('#perk-UiHandler').text('')
+    $('#perk-UiHandler').removeClass('text-success')
+  }, 2000)
   $('form').trigger('reset')
 }
 
-const onError = function (err) {
-  console.error(err)
+const onCreatePerkSuccess = function (responseData) {
+  $('#perk-UiHandler').show()
+  $('#perk-UiHandler').text('The perk was created Successfully')
+  $('#perk-UiHandler').removeClass()
+  $('#perk-UiHandler').addClass('text-success')
+  setTimeout(() => {
+    $('#perk-UiHandler').hide()
+    $('#perk-UiHandler').text('')
+    $('#perk-UiHandler').removeClass('text-success')
+  }, 2000)
+  $('form').trigger('reset')
+}
 
+const onError = function () {
   $('#error-message').text('Something went wrong, please try again.')
+  $('#error-message').addClass('text-danger')
 }
 
 module.exports = {
@@ -173,7 +213,6 @@ module.exports = {
   signOutFailure,
   signOutSuccess,
   onIndexPerkSuccess,
-  // onIndexPerkOwnerSuccess,
   onCreatePerk,
   onError,
   onShowPerkSuccess,

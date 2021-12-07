@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>DBD Perk Creator</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,31 +11,34 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+    <body id = "box">
     <body>
+      <nav>
       <h1>DBD PERK CREATOR</h1>
+      </nav>
     </body>
     <body>
-      <section id="before-sign-in">
-        <form id="sign-up" class="border">
+      <section id="before-sign-in" class = "ordered-sign">
+        <form id="sign-up" >
           <fieldset>
-            <legend>Sign Up</legend>
-            <input type="email" name="credentials[email]" placeholder="Email" required>
-            <input type="password" name="credentials[password]" placeholder="Password" required>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required>
+            <h2>Sign Up</h2>
+            <input type="email" name="credentials[email]" placeholder="Email" required class = "ordered-sign">
+            <input type="password" name="credentials[password]" placeholder="Password" required class = "ordered-sign">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required class = "ordered-sign" >
             
-            <button class="btn btn-dark">Sign Up</button>
+            <button class="btn btn-dark" id ="signUp-btn">Sign Up</button>
           </fieldset>
           
         </form>
         
-        <form id="sign-in" class="border">
+        <form id="sign-in" >
           <fieldset>
-            <legend>Sign In</legend>
-            <input type="email" name="credentials[email]" placeholder="Email" required>
-            <input type="password" name="credentials[password]" placeholder="Password" required>
+            <h2>Sign In</h2>
+            <input type="email" name="credentials[email]" placeholder="Email" required class = "ordered-sign" >
+            <input type="password" name="credentials[password]" placeholder="Password" required class = "ordered-sign">
             
             
-            <button class="btn btn-dark">Sign In</button>
+            <button class="btn btn-dark" id = "signIn-btn">Sign In</button>
           </fieldset>
           
         </form>
@@ -43,70 +46,71 @@
       </section>
       
       <section id="after-sign-in">
-        <form id="change-password" class="border">
+        <form id="change-password" class = "ordered-sign">
           <fieldset>
-            <legend>Change Password</legend>
-            <input type="password" name="passwords[old]" placeholder="Old Password" required>
-            <input type="password" name="passwords[new]" placeholder="New Password" required>
+            <h2>Change Password</h2>
+            <input type="password" name="passwords[old]" placeholder="Old Password" required class = "ordered-sign" >
+            <input type="password" name="passwords[new]" placeholder="New Password" required  class = "ordered-sign" >
             
             
             <button class="btn btn-dark">Change Password</button>
           </fieldset>
         </form>
-        <form id="sign-out" class="border">
-          <fieldset>    
-            <button class="btn btn-dark">Sign Out</button>
+        <form id="sign-out" >
+          <fieldset >    
+            <button class="btn btn-dark" >Sign Out</button>
           </fieldset>
         </form>
       </section>
       
       <section>
         <div id="error-message"></div>
-        <div id="perk-display"></div>
+        <div id="handler-display"></div>
       </section>
-
-      <h1>Perks </h1>
-      <main>
-        <section>
+      
+      <main id = "perks-after-sign-in">
+        <section id = "center-perkUi" >
           <h2> Get All Perks </h2>
-          <button id="perks-index">Get All Perks</button>
+          <button id="perks-index" class = "btn btn-dark">Get All Perks</button>
+          <div id="perk-UiHandler"></div>
           <!-- <h2> Get All Perks </h2>
-          <button id="books-index-Owned">Get All Owned Perks</button>
-          <hr> -->
-          <h2> Get One Perk</h2>
-          <form id="perks-show">
-            <input type="text" name = "perk[id]" placeholder="Perk ID">
-            <button>Get Perk</button>
-          </form>
-          <h2>Destroy One Perk</h2>
-          <form id="perks-delete">
-            <input type="text" name = "perk[id]" placeholder="Perk ID" required>
-            <button>Destroy Perk</button>
-          </form>
-          <h2> Update One perk</h2>
-          <form id="perks-update">
-            <input type="text" name = "perk[id]" placeholder="Perk ID">
-            <input type="text" name = "perk[title]" placeholder="Perk Title">
-            <input type="text" name = "perk[text]" placeholder="Perk Description">
-            <button>Update Perk</button>
-          </form>
-          <h2>Create A New Perk
-          </h2>
-          <form id="perks-new">
-            <input type="text" name = "perk[title]" placeholder="Perk Title">
-            <input type="text" name = "perk[text]" placeholder="Perk Description">
-            <button>Create Perk</button>
-          </form>
+            <button id="books-index-Owned">Get All Owned Perks</button>
+            <hr> -->
+            <h2> Get One Perk</h2>
+            <form id="perks-show">
+              <input type="text" name = "perk[id]" placeholder="Perk ID" class = "ordered-sign">
+              <button class = "btn btn-dark" >Get Perk</button>
+            </form>
+            <h2>Destroy One Perk</h2>
+            <form id="perks-delete">
+              <input type="text" name = "perk[id]" placeholder="Perk ID" required class = "ordered-sign">
+              <button class = "btn btn-dark">Delete Perk</button>
+            </form>
+            <h2> Update One perk</h2>
+            <form id="perks-update" >
+              <input type="text" name = "perk[id]" placeholder="Perk ID" >
+              <input type="text" name = "perk[title]" placeholder="Perk Title"  >
+              <input type="text" name = "perk[text]" placeholder="Perk Description" >
+              <button class = "btn btn-dark">Update Perk</button>
+            </form>
+            <h2>Create A New Perk
+            </h2>
+            <form id="perks-new">
+              <input type="text" name = "perk[title]" placeholder="Perk Title" class = "ordered-sign">
+              <input type="text" name = "perk[text]" placeholder="Perk Description" class = "ordered-sign">
+              <button class = "btn btn-dark" >Create Perk</button>
+            </form>
         </section>
 
         <section>
           <!-- <div id="error-message"></div> -->
-          <div id="perks-display"></div>
-
+          <!-- <div class = "perk-style"> -->
+          <div id="perk-display"></div>
+          <!-- </div> -->
         </section>
       </main>
 
-
+    </body>
     </body>
     </html>
     
