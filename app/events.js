@@ -36,8 +36,8 @@ const onSignOut = (event) => {
   const formData = getFormFields(form)
 
   api.signOut(formData)
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutFailure)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const onIndexPerks = () => {
@@ -56,7 +56,6 @@ const onShowPerk = (event) => {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   const id = formData.perk.id
 
   api.show(id)
@@ -69,11 +68,10 @@ const onDestroyPerk = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   const id = formData.perk.id
 
   api.destroy(id)
-    .then(ui.onDestroyPerk)
+    .then(ui.onDestroyPerkSuccess)
     .catch(ui.onError)
 }
 
@@ -82,7 +80,6 @@ const onUpdatePerk = (event) => {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   const id = formData.perk.id
 
   api.update(id, formData)
@@ -95,7 +92,6 @@ const onCreatePerk = (event) => {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
 
   api.create(formData)
     .then(ui.onCreatePerkSuccess)
