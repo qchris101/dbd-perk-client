@@ -1,6 +1,6 @@
-ERD:
+WireFrame:
 
-![ERD](https://i.gyazo.com/81d48b5cebdf2ffbdbdc542a63a65e7f.png)
+![Wireframe](https://app.moqups.com/k6gR4SuSkkOsOmkbr2B2Os0NosNLd6Nn/edit/page/a31e712a9)
 
 
 
